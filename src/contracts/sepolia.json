@@ -1,0 +1,11 @@
+{
+    "SmartAccountFactory": {
+      "address": "0x645B6109ac481A3CD718de39EAD349B3133F6665"
+    },
+    "Paymaster": {
+      "address": "0x3650103302EC76afBA9BB10FdA71601648003655"
+    },
+    "SmartAccount": {
+      "address": "0x54ce6C696A396AF6b33Ec99B7B7DBF5d5cA19De3"
+    }
+  }
