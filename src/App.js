@@ -4,6 +4,14 @@ import './App.css';
 import SmartAccountFactoryABI from './contracts/SmartAccountFactory.json';
 import sepoliaDeployment from './contracts/sepolia.json';
 
+import { createPublicClient, http, encodeFunctionData } from 'viem';
+import { sepolia } from 'viem/chains';
+import { createSmartAccountClient } from 'permissionless';
+import { toSimpleSmartAccount } from 'permissionless/accounts';
+import { createPimlicoClient } from 'permissionless/clients/pimlico';
+import { entryPoint07Address } from 'viem/account-abstraction';
+import { toAccount } from 'viem/accounts';
+
 // ─── Addresses ────────────────────────────────────────────────────────────────
 const FACTORY_ADDRESS   = sepoliaDeployment.SmartAccountFactory.address;
 const STK_ADDRESS       = '0x036150039c33b1645080a9c913f96D4c65ccca48';
@@ -155,13 +163,6 @@ export default function App() {
       setIsLoading(true);
       setTxHash('');
 
-      const { createPublicClient, http, encodeFunctionData } = await import('viem');
-      const { sepolia } = await import('viem/chains');
-      const { createSmartAccountClient } = await import('permissionless');
-      const { toSimpleSmartAccount } = await import('permissionless/accounts');
-      const { createPimlicoClient } = await import('permissionless/clients/pimlico');
-      const { entryPoint07Address } = await import('viem/account-abstraction');
-
       const pimlicoUrl = process.env.REACT_APP_PIMLICO_URL;
       const policyId  = process.env.REACT_APP_PIMLICO_POLICY_ID;
 
@@ -170,9 +171,6 @@ export default function App() {
         chain: sepolia,
         transport: http(process.env.REACT_APP_ALCHEMY_URL),
       });
-
-      // Use ethers signer wrapped for viem compatibility
-      const { toAccount } = await import('viem/accounts');
 
       const viemSigner = toAccount({
         address: account,
