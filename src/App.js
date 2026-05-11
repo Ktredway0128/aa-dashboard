@@ -7,13 +7,10 @@ import sepoliaDeployment from './contracts/sepolia.json';
 
 // ─── Addresses ────────────────────────────────────────────────────────────────
 const FACTORY_ADDRESS   = sepoliaDeployment.SmartAccountFactory.address;
-const PAYMASTER_ADDRESS = sepoliaDeployment.Paymaster.address;
 const STK_ADDRESS       = '0x036150039c33b1645080a9c913f96D4c65ccca48';
-const ENTRY_POINT_ADDRESS = '0x0000000071727De22E5E9d8BAf0edAc6f37da032';
 
 // ─── ABIs ─────────────────────────────────────────────────────────────────────
 const FACTORY_ABI       = SmartAccountFactoryABI.abi;
-const SMART_ACCOUNT_ABI = SmartAccountABI.abi;
 
 const ERC20_ABI = [
   'function balanceOf(address owner) view returns (uint256)',
@@ -21,9 +18,6 @@ const ERC20_ABI = [
   'function symbol() view returns (string)',
 ];
 
-const ENTRY_POINT_ABI = [
-  'function getNonce(address sender, uint192 key) view returns (uint256)',
-];
 
 // ─── Colors ───────────────────────────────────────────────────────────────────
 const DARK   = '#2d1f0e';
@@ -32,20 +26,10 @@ const ORANGE = '#ff8c42';
 const PURPLE = '#7c3aed';
 const GREEN  = '#16a34a';
 
-function packUint128(hi, lo) {
-  return ethers.BigNumber.from(hi).shl(128).or(ethers.BigNumber.from(lo));
-}
-
 function Spinner() {
   return <span className="spinner" />;
 }
 
-const STATUS = {
-  pending: 'status-pending',
-  success: 'status-success',
-  error:   'status-error',
-  default: 'status-default',
-};
 
 const parseError = (err) => {
   if (err.message?.includes('user rejected'))      return 'Transaction rejected in MetaMask.';
