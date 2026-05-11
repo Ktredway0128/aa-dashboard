@@ -2,7 +2,6 @@ import { useState, useEffect, useCallback } from 'react';
 import { ethers } from 'ethers';
 import './App.css';
 import SmartAccountFactoryABI from './contracts/SmartAccountFactory.json';
-import SmartAccountABI from './contracts/SmartAccount.json';
 import sepoliaDeployment from './contracts/sepolia.json';
 
 // ─── Addresses ────────────────────────────────────────────────────────────────
@@ -156,7 +155,7 @@ export default function App() {
       setIsLoading(true);
       setTxHash('');
 
-      const { createPublicClient, createWalletClient, http, custom, encodeFunctionData } = await import('viem');
+      const { createPublicClient, http, encodeFunctionData } = await import('viem');
       const { sepolia } = await import('viem/chains');
       const { createSmartAccountClient } = await import('permissionless');
       const { toSimpleSmartAccount } = await import('permissionless/accounts');
@@ -171,8 +170,6 @@ export default function App() {
         chain: sepolia,
         transport: http(process.env.REACT_APP_ALCHEMY_URL),
       });
-
-      const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
 
       // Use ethers signer wrapped for viem compatibility
       const { toAccount } = await import('viem/accounts');
