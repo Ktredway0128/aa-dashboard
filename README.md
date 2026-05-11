@@ -17,7 +17,7 @@ A production-ready React dashboard demonstrating ERC-4337 Account Abstraction. U
 
 ## LIVE DEMO
 
-[aa-dashboard.netlify.app](https://aa-dashboard.netlify.app)
+[aa-dashboard.netlify.app](https://account-abstraction-dashboard.netlify.app)
 
 ---
 
@@ -83,7 +83,7 @@ A production-ready React dashboard demonstrating ERC-4337 Account Abstraction. U
 | NFT Membership | [Live](https://nft-membership-dashboard.netlify.app) | [YouTube](https://www.youtube.com/watch?v=bZO3Xs7fzys) |
 | Liquidity Lock | [Live](https://token-liquidity-lock-dashboard.netlify.app) | YouTube |
 | MultiSig + Treasury | [Live](https://token-multisig-dashboard.netlify.app) | YouTube |
-| Account Abstraction | [Live](https://aa-dashboard.netlify.app) | YouTube |
+| Account Abstraction | [Live](https://account-abstraction-dashboard.netlify.app) | YouTube |
 
 ---
 
